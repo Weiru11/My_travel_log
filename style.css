@@ -1,26 +1,318 @@
-/* Add a black background color to the top navigation */
-.topnav {
-  background-color: #dbd3d3;
-  overflow: hidden;
+/* =============================================
+   MY AUSTRALIA TRAVEL LOG — style.css
+   Mobile-first approach (Week 6-7 & Week 8)
+   Colour palette: white / off-white / near-black
+   ============================================= */
+
+/* --- CSS Variables (Week 9) --- */
+:root {
+  --color-bg: #faf8f5;
+  --color-white: #ffffff;
+  --color-dark: #1a1a1a;
+  --color-mid: #6b6560;
+  --color-border: #e8e2da;
+  --color-accent: #c8b89a;
+  --font-main: Georgia, 'Times New Roman', serif;
+  --font-ui: 'Helvetica Neue', Arial, sans-serif;
+  --nav-height: 80px;
+  --transition: 0.3s ease;
 }
-/* Style the links inside the navigation bar */
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
+
+/* --- Reset --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Base --- */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-dark);
+  font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 1.7;
+  /* Push content below fixed header (Week 9) */
+  padding-top: var(--nav-height);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
   text-decoration: none;
-  font-size: 17px;
 }
 
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
+/* =============================================
+   HEADER & PRIMARY NAVIGATION
+   Fixed top bar — Week 9 Exercise 3
+   ============================================= */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 0 2rem;
 }
 
-/* Add a color to the active/current link */
-.topnav a.active {
-  background-color: #04AA6D;
-  color: white;
+/* Logo */
+.site-logo a {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-dark);
+  transition: color var(--transition);
+}
+
+.site-logo a:hover {
+  color: var(--color-mid);
+}
+
+/* Nav links — horizontal row (Flexbox, Week 8) */
+nav {
+  margin-top: 0.3rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links li a {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+  transition: color var(--transition);
+}
+
+.nav-links li a:hover,
+.nav-links li a.current {
+  color: var(--color-dark);
+}
+
+/* --- Dropdown (Supplementary Navigation) --- */
+/* Week 9 positioning concepts */
+.has-dropdown {
+  position: relative;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 1rem);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  list-style: none;
+  min-width: 160px;
+  padding: 0.8rem 0;
+  z-index: 200;
+}
+
+.has-dropdown:hover .dropdown {
+  display: block;
+}
+
+.dropdown li a {
+  display: block;
+  padding: 0.5rem 1.2rem;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+  transition: color var(--transition), background-color var(--transition);
+}
+
+.dropdown li a:hover {
+  color: var(--color-dark);
+  background-color: var(--color-bg);
+}
+
+/* =============================================
+   HERO — SVG MAP SECTION
+   ============================================= */
+#hero {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  background-color: var(--color-bg);
+}
+
+.hero-text h1 {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+  margin-bottom: 0.4rem;
+}
+
+.hero-text p {
+  font-size: 0.85rem;
+  color: var(--color-mid);
+  font-family: var(--font-ui);
+}
+
+.map-container {
+  max-width: 700px;
+  margin: 1.5rem auto 0;
+}
+
+.map-container svg {
+  width: 100%;
+  height: auto;
+}
+
+/* SVG state hover — CSS transition (Week 9) */
+.state {
+  fill: #ddd8cf;
+  transition: fill var(--transition);
+  cursor: pointer;
+}
+
+.state:hover {
+  fill: var(--color-accent);
+}
+
+/* =============================================
+   PLACES GRID
+   ============================================= */
+#places {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+#places h2 {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Single column on mobile */
+.places-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.place-card {
+  display: block;
+  overflow: hidden;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+}
+
+.place-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.place-card:hover img {
+  transform: scale(1.03);
+}
+
+.place-card-info {
+  padding: 1.2rem 1.4rem;
+}
+
+.place-card-info h3 {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-dark);
+  margin-bottom: 0.2rem;
+}
+
+.place-card-info p {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--color-mid);
+  letter-spacing: 0.08em;
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+footer {
+  border-top: 1px solid var(--color-border);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--color-mid);
+}
+
+/* =============================================
+   RESPONSIVE — DESKTOP OVERRIDES
+   Media query @ 900px (Week 8 Exercise 3)
+   ============================================= */
+@media only screen and (min-width: 900px) {
+
+  body {
+    font-size: 17px;
+  }
+
+  /* Nav layout adjusts for wider screens */
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 3rem;
+  }
+
+  .site-logo a {
+    font-size: 0.8rem;
+  }
+
+  nav {
+    margin-top: 0;
+  }
+
+  /* Places — 2 columns on tablet, 4 on desktop */
+  .places-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .place-card {
+    flex: 1 1 calc(50% - 0.75rem);
+  }
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+  .place-card {
+    flex: 1 1 calc(25% - 1.2rem);
+  }
+
 }
