@@ -310,23 +310,23 @@ body::selection {
 
 /* City spot positions */
 .marker-sydney {
-  left: 80.5%;
-  top: 64%;
+  left: 88%;
+  top: 68%;
 }
 
 .marker-melbourne {
-  left: 73%;
-  top: 75%;
+  left: 77%;
+  top: 78%;
 }
 
 .marker-brisbane {
-  left: 81%;
+  left: 92%;
   top: 48%;
 }
 
 .marker-whitsunday {
-  left: 76%;
-  top: 36%;
+  left: 85%;
+  top: 33%;
 }
 
 
