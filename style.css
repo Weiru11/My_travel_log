@@ -460,7 +460,7 @@ body::selection {
   overflow: hidden;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.16);
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 3;
 }
 
 /* Image row controlled by JavaScript */

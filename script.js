@@ -68,47 +68,60 @@ mapMarkers.forEach(function (marker) {
 
 
 /* =========================
-   4. Photo slider for travel sections
+   4. Photo slider with matching text
    ========================= */
 
-/* This code works for every .photo-slider on the page.
-   Each slider is independent. */
-document.querySelectorAll(".photo-slider").forEach(function (slider) {
-  const track = slider.querySelector(".slider-track");
-  const images = slider.querySelectorAll(".slider-track img");
-  const prevButton = slider.querySelector(".slider-btn.prev");
-  const nextButton = slider.querySelector(".slider-btn.next");
-  const counter = slider.querySelector(".slider-counter");
+/* Each travel section has its own photo slider.
+   When the user changes the photo, the title and description change together. */
+document.querySelectorAll(".travel-section").forEach(function (section) {
+  const slider = section.querySelector(".photo-slider");
+  const track = section.querySelector(".slider-track");
+  const images = section.querySelectorAll(".slider-track img");
+  const prevButton = section.querySelector(".slider-btn.prev");
+  const nextButton = section.querySelector(".slider-btn.next");
+  const counter = section.querySelector(".slider-counter");
+  const title = section.querySelector(".slider-title");
+  const description = section.querySelector(".slider-description");
 
   let currentIndex = 0;
 
-  /* Stop if the slider does not have enough elements */
-  if (!track || images.length === 0 || !prevButton || !nextButton) {
+  /* Stop if this section does not have a complete slider */
+  if (!slider || !track || images.length === 0 || !prevButton || !nextButton) {
     return;
   }
 
-  /* Update image position and counter text */
+  /* Update the photo position and matching text */
   function updateSlider() {
+    const currentImage = images[currentIndex];
+
     track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
     if (counter) {
       counter.textContent = `${currentIndex + 1} / ${images.length}`;
     }
+
+    if (title && currentImage.dataset.title) {
+      title.textContent = currentImage.dataset.title;
+    }
+
+    if (description && currentImage.dataset.description) {
+      description.textContent = currentImage.dataset.description;
+    }
   }
 
-  /* Show next image */
+  /* Move to the next photo and text */
   nextButton.addEventListener("click", function () {
     currentIndex = (currentIndex + 1) % images.length;
     updateSlider();
   });
 
-  /* Show previous image */
+  /* Move to the previous photo and text */
   prevButton.addEventListener("click", function () {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     updateSlider();
   });
 
-  /* Allow keyboard navigation when the slider is focused */
+  /* Allow keyboard arrow control */
   slider.setAttribute("tabindex", "0");
 
   slider.addEventListener("keydown", function (event) {
@@ -123,6 +136,6 @@ document.querySelectorAll(".photo-slider").forEach(function (slider) {
     }
   });
 
-  /* Set initial slider state */
+  /* Set the first photo and text when the page loads */
   updateSlider();
 });
