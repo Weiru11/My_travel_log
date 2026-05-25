@@ -1,31 +1,32 @@
 /* =========================
-   0. 全站基礎設定
+   0. Global setup
    ========================= */
 
-/* 讓 padding / border 算在元素寬高裡，排版比較不容易爆掉 */
+/* Makes element width easier to control */
 * {
   box-sizing: border-box;
 }
 
+/* Global color variables */
 :root {
-  /* 全站主要顏色變數：之後想換色，優先改這裡 */
-  --bg: #f3eee6;                  /* 網頁背景色 */
-  --ink: #1c2821;                 /* 主要文字色 */
-  --muted: #6e756d;               /* 次要文字色，例如說明文字 */
-  --line: rgba(28, 40, 33, 0.16); /* 細線 / 邊框色 */
-  --paper: rgba(243, 238, 230, 0.94); /* navbar 下滑後的半透明底色 */
-  --map-sea: #d8e2df;             /* 地圖外框背景，像海的顏色 */
-  --map-land: #718f69;            /* 澳洲地圖預設土地顏色 */
-  --map-land-hover: #465f43;      /* 滑鼠移到地圖州份時的顏色 */
-  --spot: #1c2821;                /* 地圖上的地點圓點顏色 */
+  --bg: #f3eee6;
+  --ink: #1c2821;
+  --muted: #6e756d;
+  --line: rgba(28, 40, 33, 0.16);
+  --paper: rgba(243, 238, 230, 0.94);
+
+  --map-sea: #d8e2df;
+  --map-land: #718f69;
+  --map-land-hover: #465f43;
+  --spot: #1c2821;
 }
 
-/* 點錨點連結時，頁面會平滑滑動 */
+/* Smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
 }
 
-/* 全站預設字體、文字顏色、背景色 */
+/* Main page style */
 body {
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
@@ -33,34 +34,36 @@ body {
   background: var(--bg);
 }
 
+/* Text selection color */
 body::selection {
   background: #d8c7aa;
 }
 
+
 /* =========================
-   1. Top Navigation / Header
-   控制最上方固定導覽列
+   1. Header and navigation
    ========================= */
+
+/* Fixed top navigation */
 .site-header {
-  /* 固定在畫面最上方，即使往下滑也不會消失 */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
   background: transparent;
-  transition: background-color 0.35s ease, box-shadow 0.35s ease, padding 0.35s ease;
+  transition: background-color 0.35s ease, box-shadow 0.35s ease;
 }
 
+/* This class is added by JavaScript after scrolling */
 .site-header.scrolled {
-  /* JS 偵測到下滑後會加上 scrolled，讓 navbar 出現底色 */
   background: var(--paper);
   backdrop-filter: blur(12px);
   box-shadow: 0 6px 28px rgba(28, 40, 33, 0.08);
 }
 
+/* Navigation layout */
 .navbar {
-  /* 讓左邊 logo 和右邊選單分別貼近左右兩側 */
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -69,14 +72,14 @@ body::selection {
   transition: padding 0.35s ease;
 }
 
+/* Smaller navbar after scrolling */
 .site-header.scrolled .navbar {
-  /* 下滑後 navbar 變矮一點，避免佔太多空間 */
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
+/* Website logo on the left */
 .logo {
-  /* 左上角網站名稱 */
   color: var(--ink);
   text-decoration: none;
   font-size: clamp(1.35rem, 2.2vw, 2rem);
@@ -85,8 +88,8 @@ body::selection {
   font-weight: 500;
 }
 
+/* Right side navigation links */
 .nav-right {
-  /* 右上角 Home / Places 選單 */
   display: flex;
   align-items: center;
   gap: 34px;
@@ -96,6 +99,7 @@ body::selection {
   text-transform: uppercase;
 }
 
+/* Shared style for nav links and dropdown button */
 .nav-right a,
 .dropdown-button {
   color: var(--ink);
@@ -107,18 +111,19 @@ body::selection {
   cursor: pointer;
 }
 
+/* Hover effect for nav items */
 .nav-right a:hover,
 .dropdown-button:hover {
   opacity: 0.55;
 }
 
+/* Dropdown container */
 .dropdown {
-  /* 讓下拉選單可以定位在 Places 底下 */
   position: relative;
 }
 
+/* Dropdown menu hidden by default */
 .dropdown-menu {
-  /* Places 的下拉選單，預設隱藏 */
   position: absolute;
   top: 30px;
   right: 0;
@@ -132,24 +137,27 @@ body::selection {
   display: none;
 }
 
+/* Show dropdown when active */
+.dropdown.open .dropdown-menu,
 .dropdown:hover .dropdown-menu,
 .dropdown:focus-within .dropdown-menu {
-  /* 滑鼠移到 Places 或鍵盤 focus 時，顯示下拉選單 */
   display: block;
 }
 
+/* Dropdown links */
 .dropdown-menu a {
   display: block;
   padding: 10px 18px;
   white-space: nowrap;
 }
 
+
 /* =========================
-   2. Homepage / 首頁 Hero 區
-   控制首頁最上方大標題與介紹文字
+   2. Homepage hero section
    ========================= */
+
+/* First section on homepage */
 .home-hero {
-  /* 首頁第一屏：大標題區 */
   min-height: 78vh;
   padding: 178px 54px 90px;
   display: flex;
@@ -157,8 +165,8 @@ body::selection {
   justify-content: center;
 }
 
+/* Small uppercase label */
 .eyebrow {
-  /* 小小的大寫分類文字，例如 Australia travel diary */
   margin: 0 0 22px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.72rem;
@@ -168,8 +176,8 @@ body::selection {
   color: var(--muted);
 }
 
+/* Homepage main title */
 .home-hero h1 {
-  /* 首頁最大標題：Places I have been... */
   max-width: 900px;
   margin: 0;
   font-size: clamp(2.1rem, 4.5vw, 4.8rem);
@@ -178,8 +186,8 @@ body::selection {
   font-weight: 400;
 }
 
+/* Short intro text under the homepage title */
 .hero-text {
-  /* 首頁大標題下面的簡短介紹文字 */
   max-width: 550px;
   margin: 34px 0 0 auto;
   font-family: Arial, Helvetica, sans-serif;
@@ -188,37 +196,40 @@ body::selection {
   line-height: 1.8;
 }
 
+
 /* =========================
-   3. Map Section / 首頁澳洲地圖區
-   控制地圖標題、地圖外框、SVG、地點 spot
+   3. Map section
    ========================= */
 
+/* Whole map area */
 .map-section {
   padding: 34px 54px 110px;
 }
 
+/* Heading area above the map */
 .section-heading {
-  /* 地圖區上方標題與說明文字的容器 */
   max-width: none;
   width: 100%;
   margin-bottom: 38px;
 }
 
+/* Shared heading style */
 .section-heading h2,
 .place-list h2,
 .blog-hero h1 {
-  /* 這三種大標題共用的基本字型設定 */
   margin: 0;
   font-weight: 400;
   letter-spacing: -0.055em;
 }
 
+/* Map section title */
 .section-heading h2 {
   font-size: clamp(2rem, 3.8vw, 4rem);
   line-height: 1;
   white-space: nowrap;
 }
 
+/* Description text under map heading */
 .section-heading p:not(.eyebrow) {
   max-width: 500px;
   font-family: Arial, Helvetica, sans-serif;
@@ -226,8 +237,8 @@ body::selection {
   line-height: 1.8;
 }
 
+/* Map outer box */
 .map-wrapper {
-  /* 地圖外層容器：position relative 是為了讓 marker 可以絕對定位在地圖上 */
   position: relative;
   width: min(100%, 980px);
   margin: 0 auto;
@@ -236,27 +247,28 @@ body::selection {
   border: 1px solid var(--line);
 }
 
+/* SVG map */
 .australia-map {
-  /* SVG 澳洲地圖本體 */
   display: block;
   width: 100%;
   height: auto;
 }
 
+/* State paths on the map */
 .australia-map path {
-  /* 每一個州份 path 的預設樣式 */
   fill: var(--map-land);
   transition: fill 0.25s ease;
-  cursor: pointer;
+  cursor: default;
 }
 
+/* Hover color for map states */
 .australia-map path:hover,
 .australia-map .active-state {
   fill: var(--map-land-hover);
 }
 
+/* City spot on the map */
 .map-marker {
-  /* 地圖上的城市圓點 spot */
   position: absolute;
   width: 14px;
   height: 14px;
@@ -268,6 +280,7 @@ body::selection {
   box-shadow: 0 0 0 7px rgba(28, 40, 33, 0.08);
 }
 
+/* Bigger clickable area around each spot */
 .map-marker::after {
   content: "";
   position: absolute;
@@ -275,8 +288,8 @@ body::selection {
   border-radius: 50%;
 }
 
+/* City name beside each spot */
 .map-marker span {
-  /* spot 旁邊的城市名稱文字 */
   position: absolute;
   left: 22px;
   top: 50%;
@@ -290,37 +303,38 @@ body::selection {
   opacity: 0.8;
 }
 
+/* Spot hover effect */
 .map-marker:hover {
   transform: translate(-50%, -50%) scale(1.25);
 }
 
-/* 四個城市 spot 的位置，用百分比放在地圖上
-   left 越大越往右，top 越大越往下 */
+/* City spot positions */
 .marker-sydney {
-  left: 88.5%;
-  top: 66%;
+  left: 80.5%;
+  top: 64%;
 }
 
 .marker-melbourne {
-  left: 76%;
-  top: 77%;
+  left: 73%;
+  top: 75%;
 }
 
 .marker-brisbane {
-  left: 90%;
-  top: 46%;
+  left: 81%;
+  top: 48%;
 }
 
 .marker-whitsunday {
-  left: 82%;
-  top: 32%;
+  left: 76%;
+  top: 36%;
 }
 
+
 /* =========================
-   4. Place List / 首頁底部地點文字連結
-   控制 Sydney / Melbourne / Brisbane / Whitsunday 那一區
+   4. Homepage place list
    ========================= */
 
+/* Bottom list of city links */
 .place-list {
   padding: 0 54px 130px;
 }
@@ -346,12 +360,13 @@ body::selection {
   font-style: italic;
 }
 
+
 /* =========================
-   5. Place Pages / 各城市頁面
-   控制 sydney.html、melbourne.html、brisbane.html、whitsunday.html
+   5. Place page hero
    ========================= */
+
+/* Top hero section for city pages */
 .blog-hero {
-  /* 各城市頁最上方大標題區 */
   min-height: 68vh;
   padding: 178px 54px 70px;
   display: flex;
@@ -359,21 +374,189 @@ body::selection {
   justify-content: flex-end;
 }
 
+/* City page title */
 .blog-hero h1 {
-  font-size: clamp(1rem, 5vw, 5rem);
-  line-height: 0.8;
+  font-size: clamp(3rem, 8vw, 8rem);
+  line-height: 0.85;
 }
 
+/* City intro text */
 .blog-hero p:not(.eyebrow) {
-  max-width: 500px;
+  max-width: 560px;
   margin: 34px 0 0 auto;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--muted);
   line-height: 1.8;
 }
 
+
+/* =========================
+   6. Travel sections
+   Activities, Food, Views
+   ========================= */
+
+/* Each travel section uses a left photo slider and right text */
+.travel-section {
+  padding: 90px 54px;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.95fr) minmax(320px, 1.05fr);
+  gap: clamp(40px, 7vw, 100px);
+  align-items: center;
+  border-top: 1px solid var(--line);
+}
+
+/* Alternate layout for visual rhythm */
+.travel-section:nth-of-type(even) {
+  grid-template-columns: minmax(320px, 1.05fr) minmax(280px, 0.95fr);
+}
+
+/* In even sections, text comes first and slider comes second */
+.travel-section:nth-of-type(even) .photo-slider {
+  order: 2;
+}
+
+.travel-section:nth-of-type(even) .travel-text {
+  order: 1;
+}
+
+/* Text block on the right side */
+.travel-text {
+  max-width: 620px;
+}
+
+/* Section title, for example Activities or Food title */
+.travel-text h2 {
+  margin: 0 0 24px;
+  font-size: clamp(2rem, 4vw, 4.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+  font-weight: 400;
+}
+
+/* Paragraph text in travel section */
+.travel-text p:not(.eyebrow) {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+/* Optional small link inside travel text */
+.travel-text a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+
+/* =========================
+   7. Photo slider
+   ========================= */
+
+/* Slider frame */
+.photo-slider {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.16);
+  aspect-ratio: 4 / 5;
+}
+
+/* Image row controlled by JavaScript */
+.slider-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.45s ease;
+}
+
+/* Each image fills one full slide */
+.slider-track img {
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Previous and next buttons */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(243, 238, 230, 0.82);
+  color: var(--ink);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Left button */
+.slider-btn.prev {
+  left: 16px;
+}
+
+/* Right button */
+.slider-btn.next {
+  right: 16px;
+}
+
+/* Button hover effect */
+.slider-btn:hover {
+  background: var(--bg);
+}
+
+/* Small counter, for example 1 / 3 */
+.slider-counter {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  z-index: 5;
+  padding: 6px 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  background: rgba(243, 238, 230, 0.82);
+  border: 1px solid var(--line);
+}
+
+/* Optional note shown when user hovers the slider */
+.slider-hint {
+  position: absolute;
+  right: 16px;
+  bottom: 14px;
+  z-index: 5;
+  padding: 6px 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: rgba(243, 238, 230, 0.82);
+  border: 1px solid var(--line);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.photo-slider:hover .slider-hint {
+  opacity: 1;
+}
+
+
+/* =========================
+   8. Old blog layout fallback
+   You can keep this if some pages still use the old structure
+   ========================= */
+
 .blog-layout {
-  /* 各城市頁內容區：左邊照片、右邊文章 */
   padding: 20px 54px 120px;
   display: grid;
   grid-template-columns: minmax(260px, 0.9fr) minmax(320px, 1.1fr);
@@ -382,7 +565,6 @@ body::selection {
 }
 
 .photo-placeholder {
-  /* 沒放照片前的灰色照片占位框 */
   min-height: 560px;
   border: 1px solid var(--line);
   background: linear-gradient(135deg, rgba(255,255,255,0.26), rgba(28,40,33,0.05));
@@ -397,7 +579,6 @@ body::selection {
 }
 
 .photo-placeholder img {
-  /* 如果你放真正照片，這裡控制照片填滿框框 */
   display: block;
   width: 100%;
   height: 100%;
@@ -405,7 +586,6 @@ body::selection {
 }
 
 .blog-post {
-  /* 城市頁文章內容寬度 */
   max-width: 620px;
 }
 
@@ -430,8 +610,9 @@ body::selection {
   border-bottom: 1px solid currentColor;
 }
 
+
 /* =========================
-   6. Footer / 頁尾
+   9. Footer
    ========================= */
 
 footer {
@@ -441,9 +622,9 @@ footer {
   font-size: 0.8rem;
 }
 
+
 /* =========================
-   7. Responsive / 手機版設定
-   螢幕寬度小於 760px 時會套用
+   10. Responsive design
    ========================= */
 
 @media (max-width: 760px) {
@@ -475,6 +656,10 @@ footer {
     padding-right: 24px;
   }
 
+  .section-heading h2 {
+    white-space: normal;
+  }
+
   .map-marker span {
     display: none;
   }
@@ -485,5 +670,30 @@ footer {
 
   .photo-placeholder {
     min-height: 360px;
+  }
+
+  .travel-section,
+  .travel-section:nth-of-type(even) {
+    grid-template-columns: 1fr;
+    padding: 64px 24px;
+  }
+
+  .travel-section:nth-of-type(even) .photo-slider,
+  .travel-section:nth-of-type(even) .travel-text {
+    order: initial;
+  }
+
+  .photo-slider {
+    aspect-ratio: 4 / 4.8;
+  }
+
+  .slider-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.5rem;
+  }
+
+  .slider-hint {
+    display: none;
   }
 }
