@@ -151,6 +151,13 @@ body::selection {
   white-space: nowrap;
 }
 
+/* Make navbar text white when it is on top of the photo hero */
+.site-header:not(.scrolled) .logo,
+.site-header:not(.scrolled) .nav-right a,
+.site-header:not(.scrolled) .dropdown-button {
+  color: #f8f3ea;
+}
+
 
 /* =========================
    2. Homepage hero section
@@ -194,6 +201,47 @@ body::selection {
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.8;
+}
+
+.photo-hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 178px 54px 90px;
+  background-image: url("images/home-hero.jpg");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* Dark layer on top of the photo so the text is easier to read */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.32);
+  z-index: 1;
+}
+
+/* Text content above the overlay */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  color: #f8f3ea;
+}
+
+.photo-hero .eyebrow,
+.photo-hero .hero-text {
+  color: rgba(248, 243, 234, 0.86);
+}
+
+.photo-hero h1 {
+  color: #f8f3ea;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+}
+
+.photo-hero .hero-text {
+  margin: 34px 0 0;
+  max-width: 560px;
 }
 
 
