@@ -6,7 +6,9 @@
   <title>Brisbane | My Australia Travel Log</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <!-- Fixed top navigation -->
  <header class="site-header">
     <nav class="navbar" aria-label="Main navigation">
       <a class="logo" href="index.html" aria-label="Back to home page">
@@ -15,9 +17,10 @@
 
       <div class="nav-right">
         <a href="index.html">Home</a>
+
         <div class="dropdown">
-          <button class="dropdown-button" type="button">Places</button>
-          <ul class="dropdown-menu" aria-label="Places menu">
+          <button class="dropdown-button" type="button">Places ▾</button>
+          <ul class="dropdown-menu">
             <li><a href="sydney.html">Sydney</a></li>
             <li><a href="melbourne.html">Melbourne</a></li>
             <li><a href="brisbane.html">Brisbane</a></li>
@@ -29,36 +32,117 @@
   </header>
 
   <main>
+    <!-- City hero section -->
     <section class="blog-hero">
-      <p class="eyebrow">travel note</p>
+      <p class="eyebrow">Queensland</p>
       <h1>Brisbane</h1>
-      <p>A city note about river walks, warm weather, and everyday life in Queensland.</p>
+      <p>
+        The vibrant capital of Queensland, known for its tropical climate, beautiful rivers, and lively cultural scene.
+      </p>
     </section>
 
-    <section class="blog-layout">
-      <div class="photo-placeholder">
-        Replace this block with your own photo:<br />
-        &lt;img src="images/brisbane.jpg" alt="Brisbane travel photo" /&gt;
+<!-- Activities section -->
+<section class="travel-section">
+  <div class="photo-slider">
+    <button class="slider-btn prev" type="button" aria-label="Previous activity photo">‹</button>
+
+    <div class="slider-track">
+      <img 
+        src="images/brisbane-activity-1.jpg" 
+        alt="surfing in Brisbane"
+        data-title="Surfers Paradise"
+        data-description="Surfers Paradise is a popular beach destination in Brisbane, known for its golden sands and excellent surfing conditions. The area offers a vibrant atmosphere with shops, restaurants, and entertainment options."
+      >
+
+      <img 
+        src="images/brisbane-activity-2.jpg" 
+        alt="City hall christmas tree"
+        data-title="City Hall Christmas Tree"
+        data-description="The City Hall Christmas Tree is a beloved holiday tradition in Brisbane, lighting up the city center during the festive season."
+      >
+    </div>
+
+    <button class="slider-btn next" type="button" aria-label="Next activity photo">›</button>
+
+    <div class="slider-counter">1 / 4</div>
+    <div class="slider-hint">Browse photos</div>
+  </div>
+
+  <div class="travel-text">
+    <p class="eyebrow">Activities</p>
+    <h2 class="slider-title"></h2>
+    <p class="slider-description"></p>
+  </div>
+</section>
+
+<!-- Food section -->
+<section class="travel-section">
+  <div class="photo-slider">
+    <button class="slider-btn prev" type="button" aria-label="Previous food photo">‹</button>
+
+    <div class="slider-track">
+      <img 
+        src="images/brisbane-food-1.jpg" 
+        alt="Felons Brewing Co. beer"
+        data-title="Felons Brewing Co."
+        data-description="Near the Brisbane River, Felons Brewing Co. offers a unique craft beer experience with a variety of locally brewed beers and a vibrant atmosphere."
+      >
+
+      <img 
+        src="images/brisbane-food-2.jpg" 
+        alt="The Star City Casino dining"
+        data-title="The Star City Casino"
+        data-description="The Star City Casino in Brisbane offers a world-class dining experience with a variety of restaurants and bars. Visitors can enjoy fine cuisine while taking in the vibrant atmosphere of the casino."
+      >
+    </div>
+
+    <button class="slider-btn next" type="button" aria-label="Next food photo">›</button>
+
+    <div class="slider-counter">1 / 3</div>
+    <div class="slider-hint">Browse photos</div>
+  </div>
+
+  <div class="travel-text">
+    <p class="eyebrow">Food</p>
+    <h2 class="slider-title"></h2>
+    <p class="slider-description"></p>
+  </div>
+</section>
+
+    <!-- Views section -->
+    <section class="travel-section">
+      <div class="photo-slider">
+        <button class="slider-btn prev" type="button" aria-label="Previous view photo">‹</button>
+
+        <div class="slider-track">
+          <img src="images/brisbane-view-1.jpg" 
+               alt="Brisbane view photo 1"
+               data-title="South Bank brisbane sign"
+               data-description="The South Bank Brisbane Sign is an iconic landmark located in the South Bank Parklands, offering a vibrant and colorful backdrop for visitors to capture memorable photos while enjoying the scenic views of the Brisbane River and city skyline."
+          >
+          <img src="images/brisbane-view-2.jpg" 
+               alt="Brisbane view photo 2" 
+               data-title="Brisbane River" 
+               data-description="The Brisbane River is a scenic waterway that runs through the heart of the city, 
+                                offering beautiful views and recreational opportunities for residents and visitors alike.">
+        </div>
+
+        <button class="slider-btn next" type="button" aria-label="Next view photo">›</button>
+
+        <div class="slider-counter">1 / 3</div>
+        <div class="slider-hint">Browse photos</div>
       </div>
 
-      <article class="blog-post">
-        <h2>My memory of Brisbane</h2>
-        <p>River walks, bright weather, easy weekends, and the small details that made Brisbane feel close and familiar.</p>
-
-        <h2>What I want to remember</h2>
-        <p>
-          Write 2 to 3 simple paragraphs here. You can describe where you went,
-          what you saw, what surprised you, and what kind of feeling this place
-          gave you. It can sound personal and casual, like a travel diary.
-        </p>
-
-        <p><a class="blog-link" href="index.html">Back to map</a></p>
-      </article>
+      <div class="travel-text">
+        <p class="eyebrow">Views</p>
+        <h2 class="slider-title"></h2>
+        <p class="slider-description"></p>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>© 2026 My Australia Travel Log</p>
+    <p>© 2026 My Australia Travel Log. Made as a personal travel diary.</p>
   </footer>
 
   <script src="script.js"></script>

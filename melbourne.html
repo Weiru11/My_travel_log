@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Melbourne | My Australia Travel Log</title>
+  <title>Whitsunday | My Australia Travel Log</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -34,70 +34,81 @@
   <main>
     <!-- City hero section -->
     <section class="blog-hero">
-      <p class="eyebrow">Victoria</p>
-      <h1>Melbourne</h1>
+      <p class="eyebrow">Queensland</p>
+      <h1>Whitsunday</h1>
       <p>
-        A city of laneways, coffee culture, vibrant arts, and the energy of a growing metropolis.
+        A tropical paradise of pristine beaches, crystal-clear waters, and vibrant marine life.
       </p>
     </section>
 
-    <!-- Activities section -->
-    <section class="travel-section">
-      <div class="photo-slider">
-        <button class="slider-btn prev" type="button" aria-label="Previous activity photo">‹</button>
+<!-- Activities section -->
+<section class="travel-section">
+  <div class="photo-slider">
+    <button class="slider-btn prev" type="button" aria-label="Previous activity photo">‹</button>
 
-        <div class="slider-track">
-          <img src="images/melbourne-activity-1.jpg" alt="Melbourne activity photo 1">
-          <img src="images/melbourne-activity-2.jpg" alt="Melbourne activity photo 2">
-          <img src="images/melbourne-activity-3.jpg" alt="Melbourne activity photo 3">
-        </div>
+    <div class="slider-track">
+      <img 
+        src="images/whitsunday-activity-1.jpg" 
+        alt="Snorkeling in the Whitsundays"
+        data-title="Snorkeling in Great Barrier Reef"
+        data-description="Snorkeling in the Whitsundays was an incredible way to explore the vibrant marine life. 
+        The clear waters and diverse coral reefs made for an unforgettable underwater adventure."
+      >
 
-        <button class="slider-btn next" type="button" aria-label="Next activity photo">›</button>
+      <img 
+        src="images/whitsunday-activity-2.jpg" 
+        alt="White haven beach in the Whitsundays"
+        data-title="Whitehaven Beach"
+        data-description="Whitehaven Beach in the Whitsundays is a stunning destination with its pristine white sand and crystal-clear waters. The beach offers a perfect setting for relaxation and water activities."
+      >
+    </div>
 
-        <div class="slider-counter">1 / 3</div>
-        <div class="slider-hint">Browse photos</div>
-      </div>
+    <button class="slider-btn next" type="button" aria-label="Next activity photo">›</button>
 
-      <div class="travel-text">
-        <p class="eyebrow">Activities</p>
-        <h2>Walking through the city</h2>
-        <p>
-          Melbourne felt like a place made for walking. I moved between the laneways,
-          the streets, and the little corners of the city, collecting small views
-          along the way. The best part was not always a specific destination, but
-          the feeling of wandering and slowly understanding the rhythm of the city.
-        </p>
-      </div>
-    </section>
+    <div class="slider-counter">1 / 3</div>
+    <div class="slider-hint">Browse photos</div>
+  </div>
 
-    <!-- Food section -->
-    <section class="travel-section">
-      <div class="photo-slider">
-        <button class="slider-btn prev" type="button" aria-label="Previous food photo">‹</button>
+  <div class="travel-text">
+    <p class="eyebrow">Activities</p>
+    <h2 class="slider-title"></h2>
+    <p class="slider-description"></p>
+  </div>
+</section>
 
-        <div class="slider-track">
-          <img src="images/melbourne-food-1.jpg" alt="Melbourne food photo 1">
-          <img src="images/melbourne-food-2.jpg" alt="Melbourne food photo 2">
-          <img src="images/melbourne-food-3.jpg" alt="Melbourne food photo 3">
-        </div>
+<!-- Food section -->
+<section class="travel-section">
+  <div class="photo-slider">
+    <button class="slider-btn prev" type="button" aria-label="Previous food photo">‹</button>
 
-        <button class="slider-btn next" type="button" aria-label="Next food photo">›</button>
+    <div class="slider-track">
+      <img 
+        src="images/whitsunday-food-1.jpg" 
+        alt="Paradiso Airlie Beach restaurant"
+        data-title="Paradiso Airlie Beach restaurant"
+        data-description="Paradiso Airlie Beach restaurant is a popular dining destination in the Whitsundays, offering nice view of airlie beach."
+      >
 
-        <div class="slider-counter">1 / 3</div>
-        <div class="slider-hint">Browse photos</div>
-      </div>
+      <img 
+        src="images/whitsunday-food-2.jpg" 
+        alt="Sorrento Restaurant and Bar"
+        data-title="Sorrento Restaurant and Bar"
+        data-description="Sorrento Restaurant and Bar is a popular dining destination in the Whitsundays, offering a variety of delicious dishes and refreshing beverages."
+      >
+    </div>
 
-      <div class="travel-text">
-        <p class="eyebrow">Food</p>
-        <h2>Little meals between plans</h2>
-        <p>
-          Food in Melbourne became part of the trip’s memory. Some meals were planned,
-          and some were found by accident while walking around. Whether it was a
-          cafe, a quick bite, or something shared after a long day, these small food
-          moments made the city feel more personal.
-        </p>
-      </div>
-    </section>
+    <button class="slider-btn next" type="button" aria-label="Next food photo">›</button>
+
+    <div class="slider-counter">1 / 3</div>
+    <div class="slider-hint">Browse photos</div>
+  </div>
+
+  <div class="travel-text">
+    <p class="eyebrow">Food</p>
+    <h2 class="slider-title"></h2>
+    <p class="slider-description"></p>
+  </div>
+</section>
 
     <!-- Views section -->
     <section class="travel-section">
@@ -105,9 +116,15 @@
         <button class="slider-btn prev" type="button" aria-label="Previous view photo">‹</button>
 
         <div class="slider-track">
-          <img src="images/melbourne-view-1.jpg" alt="Melbourne view photo 1">
-          <img src="images/melbourne-view-2.jpg" alt="Melbourne view photo 2">
-          <img src="images/melbourne-view-3.jpg" alt="Melbourne view photo 3">
+          <img src="images/whitsunday-view-1.jpg" 
+               alt="Whitsunday view photo 1"
+               data-title="Hill Inlet"
+               data-description="Hill Inlet is a stunning natural harbor in the Whitsundays, known for their pristine beaches and crystal-clear waters."
+          >
+          <img src="images/whitsunday-view-2.jpg" 
+               alt="Whitsunday view photo 2" 
+               data-title="Airlie Beach" 
+               data-description="Airlie Beach is a popular destination in the Whitsundays, known for its beautiful beaches and vibrant atmosphere.">
         </div>
 
         <button class="slider-btn next" type="button" aria-label="Next view photo">›</button>
@@ -118,13 +135,8 @@
 
       <div class="travel-text">
         <p class="eyebrow">Views</p>
-        <h2>Cityscapes and laneways</h2>
-        <p>
-          The views were what stayed with me most. The laneways, the streets, the
-          buildings, and the sky all seemed to change throughout the day. Melbourne
-          was bright and open, but also soft in quiet moments, especially when the
-          light began to shift.
-        </p>
+        <h2 class="slider-title"></h2>
+        <p class="slider-description"></p>
       </div>
     </section>
   </main>
