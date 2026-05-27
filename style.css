@@ -745,3 +745,100 @@ footer {
     display: none;
   }
 }
+
+/* =========================
+   11. City page hero images
+   Add this section at the very bottom of style.css
+   ========================= */
+
+/* Make city hero sections support background images */
+.sydney-page .blog-hero,
+.melbourne-page .blog-hero,
+.brisbane-page .blog-hero,
+.whitsunday-page .blog-hero {
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Add a dark overlay on city hero images for better text readability */
+.sydney-page .blog-hero::before,
+.melbourne-page .blog-hero::before,
+.brisbane-page .blog-hero::before,
+.whitsunday-page .blog-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.34);
+  z-index: 1;
+}
+
+/* Keep all hero text above the dark overlay */
+.sydney-page .blog-hero > *,
+.melbourne-page .blog-hero > *,
+.brisbane-page .blog-hero > *,
+.whitsunday-page .blog-hero > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Make city hero text white */
+.sydney-page .blog-hero,
+.sydney-page .blog-hero .eyebrow,
+.sydney-page .blog-hero p,
+.melbourne-page .blog-hero,
+.melbourne-page .blog-hero .eyebrow,
+.melbourne-page .blog-hero p,
+.brisbane-page .blog-hero,
+.brisbane-page .blog-hero .eyebrow,
+.brisbane-page .blog-hero p,
+.whitsunday-page .blog-hero,
+.whitsunday-page .blog-hero .eyebrow,
+.whitsunday-page .blog-hero p {
+  color: #f8f3ea;
+}
+
+/* Sydney hero image */
+.sydney-page .blog-hero {
+  background-image: url("images/sydney-hero.jpg");
+}
+
+/* Melbourne hero image */
+.melbourne-page .blog-hero {
+  background-image: url("images/melbourne-hero.jpg");
+}
+
+/* Brisbane hero image */
+.brisbane-page .blog-hero {
+  background-image: url("images/brisbane-hero.jpg");
+}
+
+/* Whitsunday hero image */
+.whitsunday-page .blog-hero {
+  background-image: url("images/whitsunday-hero.jpg");
+}
+
+/* Make navbar text white on city hero images before scrolling */
+.sydney-page .site-header:not(.scrolled) .logo,
+.sydney-page .site-header:not(.scrolled) .nav-right a,
+.sydney-page .site-header:not(.scrolled) .dropdown-button,
+.melbourne-page .site-header:not(.scrolled) .logo,
+.melbourne-page .site-header:not(.scrolled) .nav-right a,
+.melbourne-page .site-header:not(.scrolled) .dropdown-button,
+.brisbane-page .site-header:not(.scrolled) .logo,
+.brisbane-page .site-header:not(.scrolled) .nav-right a,
+.brisbane-page .site-header:not(.scrolled) .dropdown-button,
+.whitsunday-page .site-header:not(.scrolled) .logo,
+.whitsunday-page .site-header:not(.scrolled) .nav-right a,
+.whitsunday-page .site-header:not(.scrolled) .dropdown-button {
+  color: #f8f3ea;
+}
+
+/* Make dropdown menu text dark so it is readable on the light menu */
+.sydney-page .site-header:not(.scrolled) .dropdown-menu a,
+.melbourne-page .site-header:not(.scrolled) .dropdown-menu a,
+.brisbane-page .site-header:not(.scrolled) .dropdown-menu a,
+.whitsunday-page .site-header:not(.scrolled) .dropdown-menu a {
+  color: var(--ink);
+}
