@@ -207,7 +207,7 @@ body::selection {
   position: relative;
   min-height: 100vh;
   padding: 178px 54px 90px;
-  background-image: url("images/home-hero.jpg");
+  background-image: url("../images/home-hero.jpg");
   background-size: cover;
   background-position: center;
   overflow: hidden;
@@ -801,22 +801,22 @@ footer {
 
 /* Sydney hero image */
 .sydney-page .blog-hero {
-  background-image: url("images/sydney-hero.jpg");
+  background-image: url("../images/sydney-hero.jpg");
 }
 
 /* Melbourne hero image */
 .melbourne-page .blog-hero {
-  background-image: url("images/melbourne-hero.jpg");
+  background-image: url("../images/melbourne-hero.jpg");
 }
 
 /* Brisbane hero image */
 .brisbane-page .blog-hero {
-  background-image: url("images/brisbane-hero.jpg");
+  background-image: url("../images/brisbane-hero.jpg");
 }
 
 /* Whitsunday hero image */
 .whitsunday-page .blog-hero {
-  background-image: url("images/whitsunday-hero.jpg");
+  background-image: url("../images/whitsunday-hero.jpg");
 }
 
 /* Make navbar text white on city hero images before scrolling */
