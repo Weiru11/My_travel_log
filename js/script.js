@@ -53,6 +53,7 @@ if (dropdownButton && dropdown) {
 
 /* Only map markers should navigate to city pages.
    The SVG states should not navigate anywhere. */
+   // find all map markers by their class and add a hover effect to indicate they are clickable
 const mapMarkers = document.querySelectorAll(".map-marker");
 
 /* Add a small active effect when hovering on map markers */
